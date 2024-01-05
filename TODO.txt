@@ -19,7 +19,7 @@ login
 Open new tickets
 Statuses: open, closed
 Sub-statuses: pending customer, pending agent, resolved, not resolved
-Admin defined categrories
+Admin defined categories
 Reporting: by customer, by status, by category, by agent
 Notifications
 POP & IMAP support?
