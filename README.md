@@ -4,13 +4,25 @@ A Help Desk / Ticketing System focused on providing useful reporting tools for I
 
 ## Getting Started
 
-TODO - EXPAND
+Prior knowledge of Java, Apache Maven, and Spring Boot are recommended.
+
+### Prerequisites
+
+* Java 17+
+* Apache Maven
 
 ### Installing
 
-TODO - EXPAND
+Download a copy of the repository and open a terminal to the project root.
 
-To start the application, run:
+To build the application, run the command:
+
+Linux/MacOS
+```
+./mvnw package
+```
+
+To start the application, run the command:
 
 Linux/MacOS
 ```
@@ -19,11 +31,12 @@ Linux/MacOS
 
 ## Running the tests
 
-There are no tests at this time.
+Ro run the tests, run the command:
 
-## Deployment
-
-TODO - EXPAND
+Linux/MacOS
+```
+./mvnw test
+```
 
 ## Built With
 
