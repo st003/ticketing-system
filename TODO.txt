@@ -1,6 +1,7 @@
 MISC
 
 Pick a license
+Add Travis CI support
 
 FUNCTIONALITY
 
@@ -22,4 +23,4 @@ Sub-statuses: pending customer, pending agent, resolved, not resolved
 Admin defined categories
 Reporting: by customer, by status, by category, by agent
 Notifications
-POP & IMAP support?
+POP & IMAP support
