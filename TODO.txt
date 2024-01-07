@@ -22,5 +22,11 @@ Statuses: open, closed
 Sub-statuses: pending customer, pending agent, resolved, not resolved
 Admin defined categories
 Reporting: by customer, by status, by category, by agent
+  - track pending customer vs pending agent times
 Notifications
 POP & IMAP support
+
+NEXT ITEMS
+
+Test IndexController
+Default 404 page

@@ -31,7 +31,7 @@ Linux/MacOS
 
 ## Running the tests
 
-Ro run the tests, run the command:
+To run the tests, run the command:
 
 Linux/MacOS
 ```
