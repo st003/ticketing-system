@@ -28,4 +28,5 @@ POP & IMAP support
 
 NEXT ITEMS
 
-
+Spring Security (might need to create an AppUser for database first?)
+Spring JPA Hibernate
