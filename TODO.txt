@@ -1,7 +1,7 @@
 MISC
 
 Pick a license
-Add Travis CI support
+Github actions - CI
 
 FUNCTIONALITY
 
@@ -28,5 +28,4 @@ POP & IMAP support
 
 NEXT ITEMS
 
-Test IndexController
-Default 404 page
+
