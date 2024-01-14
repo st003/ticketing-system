@@ -16,7 +16,7 @@ public class SecurityConfig {
 
         http
             .authorizeHttpRequests(authorizeHttpRequestCustomizer -> authorizeHttpRequestCustomizer
-                .requestMatchers("/", "/tickets").permitAll()
+                .requestMatchers("/").permitAll()
                 .anyRequest().authenticated()
             ).formLogin(Customizer.withDefaults());
 
