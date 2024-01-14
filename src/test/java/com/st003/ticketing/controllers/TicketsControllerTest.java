@@ -16,7 +16,7 @@ public class TicketsControllerTest {
     private MockMvc mvc;
 
     @Test
-    void getIndex() throws Exception {
+    void get() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/tickets"))
             .andExpect(status().isOk());
     }
