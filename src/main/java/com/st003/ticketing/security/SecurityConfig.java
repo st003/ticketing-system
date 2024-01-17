@@ -14,11 +14,20 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain defauFilterChain(HttpSecurity http) throws Exception {
 
+        // TODO - TEMPORARY
+        // (1) h2-console configs included only for testing
+        // (2) header frame options only disabled for h2-console
+
         http
             .authorizeHttpRequests(authorizeHttpRequestCustomizer -> authorizeHttpRequestCustomizer
-                .requestMatchers("/").permitAll()
+                .requestMatchers("/", "/h2-console/**").permitAll()
                 .anyRequest().authenticated()
-            ).formLogin(Customizer.withDefaults());
+            ).formLogin(Customizer.withDefaults()
+            ).csrf(csrf -> csrf
+                .ignoringRequestMatchers("/h2-console/**")
+            ).headers(headers -> headers
+                .frameOptions(frames -> frames.disable())
+            );
 
         return http.build();
     }

@@ -28,8 +28,8 @@ POP & IMAP support
 
 NEXT ITEMS
 
-Spring Security
- - how to config
- - how to test
-
-Spring JPA Hibernate
+JPA column constraints
+create first repository
+make test database permanently on disk
+insert user into database
+authenticate with database user
