@@ -1,4 +1,4 @@
-package com.st003.ticketing.data.enties;
+package com.st003.ticketing.data.entities;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
