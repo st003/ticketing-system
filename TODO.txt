@@ -28,7 +28,6 @@ POP & IMAP support
 
 NEXT ITEMS
 
-JPA column constraints
 create first repository
 make test database permanently on disk
 insert user into database

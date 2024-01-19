@@ -1,5 +1,6 @@
 package com.st003.ticketing.data.enties;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,9 +13,11 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    // TODO - this should have a unique constraint
+    @Column(length = 254, nullable = false, unique = true)
     private String email;
 
+    // TODO - set length for hash size
+    @Column(nullable = false)
     private String passwordHash;
 
     protected AppUser() {}
