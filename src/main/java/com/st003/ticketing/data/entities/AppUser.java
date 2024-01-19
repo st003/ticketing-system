@@ -15,6 +15,7 @@ public class AppUser {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    // email functions as the username
     @Column(length = 254, nullable = false, unique = true)
     private String email;
 
@@ -23,26 +24,22 @@ public class AppUser {
 
     protected AppUser() {}
 
-    public AppUser(String email) {
+    public AppUser(String email, String plaintextPassword) {
         this.email = email;
+        BCryptPasswordEncoder bycrypt = new BCryptPasswordEncoder();
+        this.passwordHash = bycrypt.encode(plaintextPassword);
     }
 
     public Long getId() {
         return id;
     }
 
-    // email functions as the username
     public String getEmail() {
         return email;
     }
 
     public String getPasswordHash() {
         return passwordHash;
-    }
-
-    public void hashPlaintextPassword(String plaintextPassword) {
-        BCryptPasswordEncoder bycrypt = new BCryptPasswordEncoder();
-        this.passwordHash = bycrypt.encode(plaintextPassword);
     }
 
     @Override
