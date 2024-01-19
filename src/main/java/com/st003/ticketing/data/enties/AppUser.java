@@ -1,5 +1,7 @@
 package com.st003.ticketing.data.enties;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -16,22 +18,20 @@ public class AppUser {
     @Column(length = 254, nullable = false, unique = true)
     private String email;
 
-    // TODO - set length for hash size
-    @Column(nullable = false)
+    @Column(length = 60, nullable = false)
     private String passwordHash;
 
     protected AppUser() {}
 
-    public AppUser(String email, String passwordHash) {
+    public AppUser(String email) {
         this.email = email;
-        this.passwordHash = passwordHash;
     }
 
     public Long getId() {
         return id;
     }
 
-    // email to function as a username
+    // email functions as the username
     public String getEmail() {
         return email;
     }
@@ -40,8 +40,13 @@ public class AppUser {
         return passwordHash;
     }
 
+    public void hashPlaintextPassword(String plaintextPassword) {
+        BCryptPasswordEncoder bycrypt = new BCryptPasswordEncoder();
+        this.passwordHash = bycrypt.encode(plaintextPassword);
+    }
+
     @Override
     public String toString() {
-        return "AppUser(id=" + id + ")";
+        return "AppUser(email=" + email + ")";
     }
 }
