@@ -28,5 +28,6 @@ POP & IMAP support
 
 NEXT ITEMS
 
-make test database permanently on disk
-authenticate with database user
+Why does /logout produce a 404?
+Database Migrations
+Switch to Postgres (keep h2 for testing?)
