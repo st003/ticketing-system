@@ -28,6 +28,5 @@ POP & IMAP support
 
 NEXT ITEMS
 
-Why does /logout produce a 404?
 Database Migrations
 Switch to Postgres (keep h2 for testing?)

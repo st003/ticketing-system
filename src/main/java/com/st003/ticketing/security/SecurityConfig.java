@@ -43,9 +43,11 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
             ).formLogin(formLoginCustomizer -> formLoginCustomizer
                 .loginPage("/login").permitAll()
-            ).csrf(csrf -> csrf
+            ).logout(logoutCustomizer -> logoutCustomizer
+                .logoutSuccessUrl("/")
+            ).csrf(csrfCustomizer -> csrfCustomizer
                 .ignoringRequestMatchers("/h2-console/**")
-            ).headers(headers -> headers
+            ).headers(headersCustomizer -> headersCustomizer
                 .frameOptions(frames -> frames.disable())
             );
 
