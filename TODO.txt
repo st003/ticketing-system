@@ -28,5 +28,9 @@ POP & IMAP support
 
 NEXT ITEMS
 
-Database Migrations
+Role authorized urls
+Rename package, remove "com."
+Expand AppUser class
+User registration
 Switch to Postgres (keep h2 for testing?)
+Database Migrations? - After determining v1 schema of database

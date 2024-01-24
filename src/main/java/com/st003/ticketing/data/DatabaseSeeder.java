@@ -26,7 +26,9 @@ public class DatabaseSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) {
         if (!repo.findAll().iterator().hasNext()) {
-            AppUser defaultAdmin = new AppUser("admin", "password");
+            AppUser defaultAdmin = new AppUser("admin");
+            defaultAdmin.setPassword("password");
+            defaultAdmin.setRole(Role.ROLE_ADMIN);
             repo.save(defaultAdmin);
         }
     }

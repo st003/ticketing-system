@@ -1,8 +1,10 @@
 package com.st003.ticketing.security;
 
+import java.util.ArrayList;
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.st003.ticketing.data.entities.AppUser;
@@ -17,8 +19,10 @@ public class AppUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO - implement fully
-        return null;
+        Collection<GrantedAuthority> authorities = new ArrayList<>();
+        String role = user.getRole().name();
+        authorities.add(new SimpleGrantedAuthority(role));
+        return authorities;
     }
 
     @Override

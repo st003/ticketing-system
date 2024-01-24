@@ -2,8 +2,12 @@ package com.st003.ticketing.data.entities;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
+import com.st003.ticketing.data.Role;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -13,6 +17,7 @@ public class AppUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "APPUSER_ID")
     private Long id;
 
     // email functions as the username
@@ -22,13 +27,19 @@ public class AppUser {
     @Column(length = 60, nullable = false)
     private String passwordHash;
 
+    @Enumerated(EnumType.ORDINAL)
+    @Column(nullable = false)
+    private Role role;
+
+    // CONSTRUCTORS
+
     protected AppUser() {}
 
-    public AppUser(String email, String plaintextPassword) {
+    public AppUser(String email) {
         this.email = email;
-        BCryptPasswordEncoder bycrypt = new BCryptPasswordEncoder();
-        this.passwordHash = bycrypt.encode(plaintextPassword);
     }
+
+    // GETTERS & SETTERS
 
     public Long getId() {
         return id;
@@ -40,6 +51,19 @@ public class AppUser {
 
     public String getPasswordHash() {
         return passwordHash;
+    }
+
+    public void setPassword(String plaintextPassword) {
+        BCryptPasswordEncoder bycrypt = new BCryptPasswordEncoder();
+        this.passwordHash = bycrypt.encode(plaintextPassword);
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override
