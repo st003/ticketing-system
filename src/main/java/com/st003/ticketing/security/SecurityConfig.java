@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import com.st003.ticketing.data.repositories.AppUserRepository;
 
@@ -20,14 +21,37 @@ public class SecurityConfig {
         this.repo = repo;
     }
 
+    /**
+     * Returns an instance of the AppUserDetailsService used for authenticating
+     * with Spring Security against an AppUser.
+     *
+     * @return A new AppUserDetailsService object
+     */
     @Bean
     public UserDetailsService userDetailsService() {
         return new AppUserDetailsService(repo);
     }
 
+    /**
+     * Returns an instance of the BCryptPasswordEncoder used for hashing the
+     * submitted plaintext password before comparing to stored hash.
+     *
+     * @return A new BCryptPasswordEncoder object
+     */
     @Bean
     public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    /**
+     * Returns an instance of the AuthenticationSuccessHandler used for redirecting
+     * an authenticated user to the correct page after login based on their role.
+     *
+     * @return A new loginSuccessHandler object
+     */
+    @Bean
+    public AuthenticationSuccessHandler getLoginSuccessHandler() {
+        return new loginSuccessHandler();
     }
 
     @Bean
@@ -40,13 +64,22 @@ public class SecurityConfig {
         http
             .authorizeHttpRequests(authorizeHttpRequestCustomizer -> authorizeHttpRequestCustomizer
                 .requestMatchers("/", "/h2-console/**").permitAll()
+                .requestMatchers("/tickets").hasRole("CUSTOMER")
+                .requestMatchers("/agent/**").hasAnyRole("AGENT", "ADMIN")
                 .anyRequest().authenticated()
+
             ).formLogin(formLoginCustomizer -> formLoginCustomizer
-                .loginPage("/login").permitAll()
+                .loginPage("/login")
+                .permitAll()
+                // customize login redirect based on AppUser role
+                .successHandler(getLoginSuccessHandler())
+
             ).logout(logoutCustomizer -> logoutCustomizer
                 .logoutSuccessUrl("/")
+
             ).csrf(csrfCustomizer -> csrfCustomizer
                 .ignoringRequestMatchers("/h2-console/**")
+
             ).headers(headersCustomizer -> headersCustomizer
                 .frameOptions(frames -> frames.disable())
             );

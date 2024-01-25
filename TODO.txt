@@ -28,7 +28,7 @@ POP & IMAP support
 
 NEXT ITEMS
 
-Role authorized urls
+Updates tests accessing urls with incorrect role - expect 403
 Rename package, remove "com."
 Expand AppUser class
 User registration
