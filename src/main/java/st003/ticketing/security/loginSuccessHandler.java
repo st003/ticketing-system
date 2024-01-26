@@ -1,4 +1,4 @@
-package com.st003.ticketing.security;
+package st003.ticketing.security;
 
 import java.io.IOException;
 

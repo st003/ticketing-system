@@ -1,4 +1,4 @@
-package com.st003.ticketing.controllers.agent;
+package st003.ticketing.controllers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -10,16 +10,16 @@ import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
-@WebMvcTest(AgentTicketsController.class)
-public class AgentTicketsControllerTest {
+@WebMvcTest(TicketsController.class)
+public class TicketsControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
     @WithMockUser
-    void getAgentTickets() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/agent/tickets"))
+    void getTickets() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/tickets"))
             .andExpect(status().isOk());
     }
 }

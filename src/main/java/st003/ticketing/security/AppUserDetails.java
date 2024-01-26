@@ -1,4 +1,4 @@
-package com.st003.ticketing.security;
+package st003.ticketing.security;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,7 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.st003.ticketing.data.entities.AppUser;
+import st003.ticketing.data.entities.AppUser;
 
 public class AppUserDetails implements UserDetails {
 

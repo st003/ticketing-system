@@ -1,4 +1,4 @@
-package com.st003.ticketing.controllers;
+package st003.ticketing.controllers;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 

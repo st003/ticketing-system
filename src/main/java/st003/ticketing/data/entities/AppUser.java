@@ -1,8 +1,8 @@
-package com.st003.ticketing.data.entities;
+package st003.ticketing.data.entities;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import com.st003.ticketing.data.Role;
+import st003.ticketing.data.Role;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

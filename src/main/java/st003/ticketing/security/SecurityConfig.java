@@ -1,4 +1,4 @@
-package com.st003.ticketing.security;
+package st003.ticketing.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
-import com.st003.ticketing.data.repositories.AppUserRepository;
+import st003.ticketing.data.repositories.AppUserRepository;
 
 @Configuration
 @EnableWebSecurity

@@ -1,4 +1,4 @@
-package com.st003.ticketing.security;
+package st003.ticketing.security;
 
 import java.util.Optional;
 
@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.st003.ticketing.data.entities.AppUser;
-import com.st003.ticketing.data.repositories.AppUserRepository;
+import st003.ticketing.data.entities.AppUser;
+import st003.ticketing.data.repositories.AppUserRepository;
 
 public class AppUserDetailsService implements UserDetailsService {
 

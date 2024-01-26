@@ -1,10 +1,10 @@
-package com.st003.ticketing.data;
+package st003.ticketing.data;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.st003.ticketing.data.entities.AppUser;
-import com.st003.ticketing.data.repositories.AppUserRepository;
+import st003.ticketing.data.entities.AppUser;
+import st003.ticketing.data.repositories.AppUserRepository;
 
 @Component
 public class DatabaseSeeder implements CommandLineRunner {

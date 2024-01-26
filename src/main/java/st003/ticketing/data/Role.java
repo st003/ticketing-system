@@ -1,4 +1,4 @@
-package com.st003.ticketing.data;
+package st003.ticketing.data;
 
 /**
  * Enum for defining AppUser Roles
