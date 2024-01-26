@@ -18,7 +18,7 @@ public class AgentTicketsControllerTest {
 
     @Test
     @WithMockUser
-    void getTickets() throws Exception {
+    void getAgentTickets() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/agent/tickets"))
             .andExpect(status().isOk());
     }

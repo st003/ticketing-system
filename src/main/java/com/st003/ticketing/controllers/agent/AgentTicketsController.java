@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AgentTicketsController {
 
     @RequestMapping("/agent/tickets")
-    public String getIndex() {
+    public String getAgentTickets() {
         return "agent/tickets";
     }
 }
