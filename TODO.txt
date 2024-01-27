@@ -9,14 +9,11 @@ Customer Facing:
 
 Open a ticket via email
 Create an account
-login
 Submit tickets via a web interface
 review ticket history
 
-Agent Facing:
+Agent/Admin Facing:
 
-Access levels: Agent, Administrator
-login
 Open new tickets
 Statuses: open, closed
 Sub-statuses: pending customer, pending agent, resolved, not resolved
