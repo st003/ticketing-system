@@ -63,8 +63,8 @@ public class SecurityConfig {
 
         http
             .authorizeHttpRequests(authorizeHttpRequestCustomizer -> authorizeHttpRequestCustomizer
-                .requestMatchers("/", "/h2-console/**").permitAll()
-                .requestMatchers("/tickets").hasRole("CUSTOMER")
+                .requestMatchers("/", "/register", "/h2-console/**").permitAll()
+                .requestMatchers("/ticket", "/tickets", "/new-ticket").hasRole("CUSTOMER")
                 .requestMatchers("/agent/**").hasAnyRole("AGENT", "ADMIN")
                 .anyRequest().authenticated()
 

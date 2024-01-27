@@ -28,6 +28,22 @@ POP & IMAP support
 
 NEXT ITEMS
 
+New Pages:
+
+Agent
+- Ticket Queue
+- Assigned Tickets
+- New ticket
+- Existing ticket
+- Reporting
+
+Admin
+- All Tickets?
+- User Management
+- Email Configuration
+- Ticket Options (categories, auto-assignment?)
+
+
 Expand AppUser class
 User registration
 Switch to Postgres (keep h2 for testing?)
