@@ -28,7 +28,6 @@ POP & IMAP support
 
 NEXT ITEMS
 
-Updates tests accessing urls with incorrect role - expect 403
 Expand AppUser class
 User registration
 Switch to Postgres (keep h2 for testing?)
