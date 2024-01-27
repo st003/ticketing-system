@@ -9,8 +9,8 @@ Customer Facing:
 
 Open a ticket via email
 Create an account
-Submit tickets via a web interface
 review ticket history
+Submit tickets via a web interface
 
 Agent/Admin Facing:
 
@@ -26,13 +26,6 @@ POP & IMAP support
 NEXT ITEMS
 
 New Pages:
-
-Agent
-- Ticket Queue
-- Assigned Tickets
-- New ticket
-- Existing ticket
-- Reporting
 
 Admin
 - All Tickets?
