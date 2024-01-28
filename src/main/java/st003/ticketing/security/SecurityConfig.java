@@ -66,6 +66,7 @@ public class SecurityConfig {
                 .requestMatchers("/", "/register", "/h2-console/**").permitAll()
                 .requestMatchers("/ticket", "/tickets", "/new-ticket").hasRole("CUSTOMER")
                 .requestMatchers("/agent/**").hasAnyRole("AGENT", "ADMIN")
+                .requestMatchers("/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
 
             ).formLogin(formLoginCustomizer -> formLoginCustomizer

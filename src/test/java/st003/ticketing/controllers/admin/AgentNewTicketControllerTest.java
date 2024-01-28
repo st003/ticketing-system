@@ -1,4 +1,4 @@
-package st003.ticketing.controllers.agent;
+package st003.ticketing.controllers.admin;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -19,23 +19,23 @@ public class AgentNewTicketControllerTest {
     private MockMvc mvc;
 
     @Test
-    @WithMockUser(roles = {"AGENT"})
-    void getAgentNewTicketAgentRole() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/agent/new-ticket"))
+    @WithMockUser(roles = {"ADMIN"})
+    void getAdminConfigAdminRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/admin/config"))
             .andExpect(status().isOk());
     }
 
     @Test
-    @WithMockUser(roles = {"ADMIN"})
-    void getAgentNewTicketAdminRole() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/agent/new-ticket"))
-            .andExpect(status().isOk());
+    @WithMockUser(roles = {"AGENT"})
+    void getAdminConfigAgentRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/admin/config"))
+            .andExpect(status().isForbidden());
     }
 
     @Test
     @WithMockUser(roles = {"CUSTOMER"})
-    void getAgentNewTicketCustomerRole() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/agent/new-ticket"))
+    void getAdminConfigCustomerRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/admin/config"))
             .andExpect(status().isForbidden());
     }
 }
