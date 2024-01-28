@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragments/head :: head('My Tickets')}"></head>
     <body>
         <h1>My Tickets</h1>
         <div th:insert="~{fragments/logout :: logout}"></div>

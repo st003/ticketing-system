@@ -8,6 +8,6 @@ public class CustomerNewTicketController {
 
     @RequestMapping("/new-ticket")
     public String getNewTicket() {
-        return "customer/new_ticket";
+        return "customer/new-ticket";
     }
 }

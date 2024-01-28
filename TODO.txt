@@ -33,7 +33,7 @@ Admin
 - Email Configuration
 - Ticket Options (categories, auto-assignment?)
 
-
+Prevent authenticated user from visting: index, login, register
 Expand AppUser class
 User registration
 Switch to Postgres (keep h2 for testing?)
