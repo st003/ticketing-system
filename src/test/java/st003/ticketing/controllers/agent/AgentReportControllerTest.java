@@ -20,7 +20,14 @@ public class AgentReportControllerTest {
 
     @Test
     @WithMockUser(roles = {"AGENT"})
-    void getAgentReport() throws Exception {
+    void getAgentReportAgentRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/agent/report"))
+            .andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser(roles = {"ADMIN"})
+    void getAgentReportAdminRole() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/agent/report"))
             .andExpect(status().isOk());
     }

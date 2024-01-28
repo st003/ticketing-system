@@ -20,7 +20,7 @@ public class CustomerTicketsControllerTest {
 
     @Test
     @WithMockUser(roles = {"CUSTOMER"})
-    void getTickets() throws Exception {
+    void getTicketsCustomerRole() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/tickets"))
             .andExpect(status().isOk());
     }

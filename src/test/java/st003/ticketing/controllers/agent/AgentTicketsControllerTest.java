@@ -20,7 +20,14 @@ public class AgentTicketsControllerTest {
 
     @Test
     @WithMockUser(roles = {"AGENT"})
-    void getAgentTickets() throws Exception {
+    void getAgentTicketsAgentRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/agent/tickets"))
+            .andExpect(status().isOk());
+    }
+
+    @Test
+    @WithMockUser(roles = {"ADMIN"})
+    void getAgentTicketsAdminRole() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/agent/tickets"))
             .andExpect(status().isOk());
     }
