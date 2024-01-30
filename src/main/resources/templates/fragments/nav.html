@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <nav th:fragment="nav">
+        <div>
+            <a href="/tickets">My Tickets</a>
+        </div>
+        <div>
+            <a href="/new-ticket">New Ticket</a>
+        </div>
+        <div>
+            <a href="/agent/tickets">Ticket Queue</a>
+        </div>
+        <div>
+            <a href="/agent/report">Reports</a>
+        </div>
+        <div>
+            <a href="/admin/config">Settings</a>
+        </div>
+        <div>
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Log out">
+            </form>
+        </div>
+    </nav>
+</html>
