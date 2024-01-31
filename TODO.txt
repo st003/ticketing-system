@@ -33,7 +33,6 @@ Admin
 - Email Configuration
 - Ticket Options (categories, auto-assignment?)
 
-Thymelead conditionally render links based on AppUser roles
 Prevent authenticated user from visting: index, login, register
 Expand AppUser class
 User registration

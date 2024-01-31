@@ -1,19 +1,19 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <nav th:fragment="nav">
-        <div>
+        <div sec:authorize="hasRole('CUSTOMER')">
             <a href="/tickets">My Tickets</a>
         </div>
-        <div>
+        <div sec:authorize="hasRole('CUSTOMER')">
             <a href="/new-ticket">New Ticket</a>
         </div>
-        <div>
+        <div sec:authorize="hasAnyRole('AGENT', 'ADMIN')">
             <a href="/agent/tickets">Ticket Queue</a>
         </div>
-        <div>
+        <div sec:authorize="hasAnyRole('AGENT', 'ADMIN')">
             <a href="/agent/report">Reports</a>
         </div>
-        <div>
+        <div sec:authorize="hasRole('ADMIN')">
             <a href="/admin/config">Settings</a>
         </div>
         <div>
