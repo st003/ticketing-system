@@ -24,8 +24,14 @@ public class AppUser {
     @Column(length = 254, nullable = false, unique = true)
     private String email;
 
-    @Column(length = 60, nullable = false)
+    @Column(length = 60)
     private String passwordHash;
+
+    @Column(length = 64)
+    private String firstName;
+
+    @Column(length = 64)
+    private String lastName;
 
     @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
@@ -56,6 +62,22 @@ public class AppUser {
     public void setPassword(String plaintextPassword) {
         BCryptPasswordEncoder bycrypt = new BCryptPasswordEncoder();
         this.passwordHash = bycrypt.encode(plaintextPassword);
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public Role getRole() {

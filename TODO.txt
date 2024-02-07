@@ -33,7 +33,7 @@ Admin
 - Email Configuration
 - Ticket Options (categories, auto-assignment?)
 
-Expand AppUser class
 User registration
+SASS
 Switch to Postgres (keep h2 for testing?)
 Database Migrations? - After determining v1 schema of database
