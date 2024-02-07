@@ -2,6 +2,34 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{fragments/head :: head('Create An Account')}"></head>
     <body>
-        <h1>Create An Account</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1 class="mb-3">Create An Account</h1>
+                    <form th:action="@{/register}" th:object="${appUser}" method="post">
+                        <div class="mb-3">
+                            <label>Email</label>
+                            <input class="form-control" type="text" th:field="*{email}" max="254" autocomplete="new-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Password</label>
+                            <input class="form-control" type="password" name="password" autocomplete="new-password" required>
+                        </div>
+                        <!-- TODO - confirm password logic -->
+                        <div class="mb-3">
+                            <label>First Name</label>
+                            <input class="form-control" type="text" th:field="*{firstName}" autocomplete="new-password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label>Last Name</label>
+                            <input class="form-control" type="text" th:field="*{lastName}" autocomplete="new-password" required>
+                        </div>
+                        <div>
+                            <input class="btn btn-primary" type="submit" value="Create Account">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

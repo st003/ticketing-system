@@ -39,7 +39,7 @@ public class AppUser {
 
     // CONSTRUCTORS
 
-    protected AppUser() {}
+    public AppUser() {}
 
     public AppUser(String email) {
         this.email = email;
@@ -51,8 +51,16 @@ public class AppUser {
         return id;
     }
 
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getEmail() {
         return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPasswordHash() {
