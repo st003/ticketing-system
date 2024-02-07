@@ -13,9 +13,10 @@
                         </div>
                         <div class="mb-3">
                             <label>Password</label>
+                            <!--/* name used here instead of th:field becauase the password field does not map to the AppUser model attribute */-->
                             <input class="form-control" type="password" name="password" autocomplete="new-password" required>
                         </div>
-                        <!-- TODO - confirm password logic -->
+                        <!--/* TODO - add confirm password logic. JS only */-->
                         <div class="mb-3">
                             <label>First Name</label>
                             <input class="form-control" type="text" th:field="*{firstName}" autocomplete="new-password" required>

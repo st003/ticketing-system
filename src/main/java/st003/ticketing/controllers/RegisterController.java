@@ -33,6 +33,8 @@ public class RegisterController {
     @PostMapping("/register")
     public String postRegister(@ModelAttribute AppUser appUser, @RequestParam String password) {
 
+        // password is passed as a @RequestParam because the submitted plaintext value
+        // must be run through the hashing logic
         appUser.setPassword(password);
         appUser.setRole(Role.ROLE_CUSTOMER);
         repo.save(appUser);
