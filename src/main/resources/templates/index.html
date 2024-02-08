@@ -2,12 +2,23 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head th:replace="~{fragments/head :: head('Tickets Home')}"></head>
     <body>
-        <h1>Index</h1>
-        <div sec:authorize="isAnonymous()">
-            <a href="/login">Log in</a>
-        </div>
-        <div sec:authorize="isAnonymous()">
-            <a href="/register">Create an Account</a>
-        </div>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <span class="navbar-brand">Help Desk</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div id="navbarItems" class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a sec:authorize="isAnonymous()" class="nav-link" href="/register">Create An Account</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <a sec:authorize="isAnonymous()" class="nav-link" href="/login">Log in</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </body>
 </html>

@@ -8,21 +8,21 @@
                     <h1 class="mb-3">Create An Account</h1>
                     <form th:action="@{/register}" th:object="${appUser}" method="post">
                         <div class="mb-3">
-                            <label>Email</label>
+                            <label class="form-label">Email</label>
                             <input class="form-control" type="text" th:field="*{email}" max="254" autocomplete="new-password" required>
                         </div>
                         <div class="mb-3">
-                            <label>Password</label>
+                            <label class="form-label">Password</label>
                             <!--/* name used here instead of th:field becauase the password field does not map to the AppUser model attribute */-->
                             <input class="form-control" type="password" name="password" autocomplete="new-password" required>
                         </div>
                         <!--/* TODO - add confirm password logic. JS only */-->
                         <div class="mb-3">
-                            <label>First Name</label>
+                            <label class="form-label">First Name</label>
                             <input class="form-control" type="text" th:field="*{firstName}" autocomplete="new-password" required>
                         </div>
                         <div class="mb-3">
-                            <label>Last Name</label>
+                            <label class="form-label">Last Name</label>
                             <input class="form-control" type="text" th:field="*{lastName}" autocomplete="new-password" required>
                         </div>
                         <div>
