@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{fragments/head :: head('Tickets')}"></head>
     <body>
+        <header th:replace="~{fragments/header :: header}"></header>
+        <nav th:replace="~{fragments/nav :: nav}"></nav>
         <h1>Assigned Tickets</h1>
         <h2>Tickets Queue</h2>
-        <div th:insert="~{fragments/nav :: nav}"></div>
     </body>
 </html>

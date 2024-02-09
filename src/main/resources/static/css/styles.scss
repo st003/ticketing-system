@@ -1,0 +1,15 @@
+$primary-color: #222222;
+$neutral-color: #EEEEEE;
+
+$light-text: #ffffff;
+
+header {
+    padding: 0.75rem 0;
+    background-color: $primary-color;
+    color: $light-text;
+}
+
+nav {
+    padding: 0 1rem;
+    background-color: $neutral-color;
+}

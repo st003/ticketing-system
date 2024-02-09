@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <header th:fragment="header" class="container-fluid">
+        <div class="row">
+            <div class="col">Help Desk</div>
+            <div class="col text-end">
+                <form th:action="@{/logout}" method="post">
+                    <input class="btn btn-primary" type="submit" value="Log out">
+                </form>
+            </div>
+        </div>
+    </header>
+</html>
