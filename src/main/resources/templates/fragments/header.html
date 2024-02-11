@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <header th:fragment="header">
         <div class="app_title">Help Desk</div>
         <div class="profile">
-            <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+            <form th:action="@{/logout}" method="post">
                 <input class="btn btn_secondary" type="submit" value="Log out">
             </form>
         </div>

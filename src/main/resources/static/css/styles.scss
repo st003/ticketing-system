@@ -27,23 +27,61 @@ $dark_text: #333333;
     }
 }
 
-.layout-container {
+header {
+    display: flex;
+    flex-direction: row;
+    padding: 0.5rem 0.75rem;
+    background-color: $primary_color;
+    color: $light_text;
+
+    .app_title {
+        flex-grow: 1;
+        font-size: 1.5rem;
+    }
+
+    .public {
+        a {
+            margin-left: 0.5rem;
+        }
+    }
+}
+
+.public_form_page {
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: $primary_color;
+
+    .public_form_content {
+        min-width: 400px;
+
+        h1 {
+            color: $light_text;
+            text-align: center;
+        }
+
+        .public_form_container {
+            padding: 1.5rem;
+            background-color: $neutral_color;
+            border-radius: 0.25rem;
+        }
+    }
+
+    .link {
+        display: block;
+        margin-top: 1rem;
+        color: $light_text;
+        text-align: center;
+    }
+}
+
+.auth-layout-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
 
     header {
-        display: flex;
-        flex-direction: row;
-        padding: 0.5rem 0.75rem;
-        background-color: $primary_color;
-        color: $light_text;
-
-        .app_title {
-            flex-grow: 1;
-            font-size: 1.5rem;
-        }
-
         .profile {
             flex-grow: 1;
             text-align: right;
