@@ -69,6 +69,7 @@
                 <configuration>
                     <inputFolder>src/main/resources/static/css</inputFolder>
                     <outputFolder>src/main/resources/static/css</outputFolder>
+                    <style>COMPRESSED</style>
                 </configuration>
                 <executions>
                     <execution>

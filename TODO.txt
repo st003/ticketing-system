@@ -34,6 +34,5 @@ Admin
 - Ticket Options (categories, auto-assignment?)
 
 Testing form posts
-SASS
 Switch to Postgres (keep h2 for testing?)
 Database Migrations? - After determining v1 schema of database
