@@ -1,17 +1,80 @@
 /* VARIABLES */
 
-$primary-color: #222222;
-$neutral-color: #EEEEEE;
+$primary_color: #333333;
+$secondary_color: #8F9779;
+$secondary_color_hover: #B0B6A1;
+$secondary_color_active: #78866B;
+$neutral_color: #EEEEEE;
 
-$light-text: #ffffff;
+$light_text: #FFFFFF;
+$dark_text: #333333;
 
-header {
-    padding: 0.75rem 0;
-    background-color: $primary-color;
-    color: $light-text;
+/* BUTTONS */
+
+.btn_secondary {
+    background-color: $secondary_color;
+    border-color: $secondary_color;
+    color: $light_text;
+
+    &:hover {
+        background-color: $secondary_color_hover;
+        border-color: $secondary_color_hover;
+    }
+
+    &:active {
+        background-color: $secondary_color_active;
+        border-color: $secondary_color_active;
+    }
 }
 
-nav {
-    padding: 0 1rem;
-    background-color: $neutral-color;
+.layout-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    header {
+        display: flex;
+        flex-direction: row;
+        padding: 0.5rem 0.75rem;
+        background-color: $primary_color;
+        color: $light_text;
+
+        .app_title {
+            flex-grow: 1;
+            font-size: 1.5rem;
+        }
+
+        .profile {
+            flex-grow: 1;
+            text-align: right;
+        }
+    }
+
+    .nav-main-container {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+
+        nav {
+            height: 100%;
+            padding: 1rem;
+            background-color: $neutral_color;
+            text-align: center;
+
+            a {
+
+                svg {
+                    width: 2.15rem;
+                    height: 2.15rem;
+                    margin-bottom: 2rem;
+                }
+            }
+        }
+
+        main {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+    }
 }

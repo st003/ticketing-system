@@ -1,10 +1,9 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{fragments/head :: head('Tickets')}"></head>
+<html th:replace="~{fragments/authenticated_layout :: authenticated_layout('Tickets', ~{::main})}">
     <body>
-        <header th:replace="~{fragments/header :: header}"></header>
-        <nav th:replace="~{fragments/nav :: nav}"></nav>
-        <h1>Assigned Tickets</h1>
-        <h2>Tickets Queue</h2>
+        <main>
+            <h1>Assigned Tickets</h1>
+            <h2>Tickets Queue</h2>
+        </main>
     </body>
 </html>

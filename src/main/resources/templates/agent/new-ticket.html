@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{fragments/head :: head('New Ticket')}"></head>
+<html th:replace="~{fragments/authenticated_layout :: authenticated_layout('New Ticket', ~{::main})}">
     <body>
-        <h1>New Ticket</h1>
-        <div th:insert="~{fragments/nav :: nav}"></div>
+        <main>
+            <h1>New Ticket</h1>
+        </main>
     </body>
 </html>

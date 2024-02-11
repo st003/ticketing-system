@@ -1,13 +1,11 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-    <header th:fragment="header" class="container-fluid">
-        <div class="row">
-            <div class="col">Help Desk</div>
-            <div class="col text-end">
-                <form th:action="@{/logout}" method="post">
-                    <input class="btn btn-primary" type="submit" value="Log out">
-                </form>
-            </div>
+    <header th:fragment="header">
+        <div class="app_title">Help Desk</div>
+        <div class="profile">
+            <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+                <input class="btn btn_secondary" type="submit" value="Log out">
+            </form>
         </div>
     </header>
 </html>

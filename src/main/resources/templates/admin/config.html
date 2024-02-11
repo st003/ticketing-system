@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head th:replace="~{fragments/head :: head('Configuration')}"></head>
+<html th:replace="~{fragments/authenticated_layout :: authenticated_layout('Settings', ~{::main})}">
     <body>
-        <h1>Settings</h1>
-        <div th:insert="~{fragments/nav :: nav}"></div>
+        <main>
+            <h1>Settings</h1>
+        </main>
     </body>
 </html>
