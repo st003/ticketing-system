@@ -5,9 +5,15 @@ $secondary_color: #8F9779;
 $secondary_color_hover: #B0B6A1;
 $secondary_color_active: #78866B;
 $neutral_color: #EEEEEE;
+$neutral_color_hover: #D4D4D4;
+$neutral_color_active: #BABABA;
 
 $light_text: #FFFFFF;
 $dark_text: #333333;
+
+html {
+    color: $dark_text;
+}
 
 /* BUTTONS */
 
@@ -89,6 +95,10 @@ header {
             flex-grow: 1;
             text-align: right;
         }
+
+        .modal-body {
+            color: $dark_text;
+        }
     }
 
     .nav-main-container {
@@ -98,16 +108,25 @@ header {
 
         nav {
             height: 100%;
-            padding: 1rem;
             background-color: $neutral_color;
             text-align: center;
 
             a {
+                display: block;
+                padding: 1rem;
 
                 svg {
-                    width: 2.15rem;
-                    height: 2.15rem;
-                    margin-bottom: 2rem;
+                    width: 2rem;
+                    height: 2rem;
+                    color: $dark_text;
+                }
+
+                &:hover {
+                    background-color: $neutral_color_hover;
+                }
+
+                &:active {
+                    background-color: $neutral_color_active;
                 }
             }
         }
