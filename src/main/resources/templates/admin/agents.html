@@ -1,8 +1,20 @@
 <!doctype html>
-<html th:replace="~{fragments/authenticated_layout :: authenticated_layout('Settings', ~{::main})}">
+<html th:replace="~{fragments/authenticated_layout :: authenticated_layout('Agents', ~{::main})}">
     <body>
         <main>
             <h1>Agents</h1>
+            <table class="table">
+                <tr>
+                    <td>Email</td>
+                    <td>First</td>
+                    <td>Last</td>
+                </tr>
+                <tr th:each="u: ${appUsers}">
+                    <td th:text="${u.email}"></td>
+                    <td th:text="${u.firstName}"></td>
+                    <td th:text="${u.lastName}"></td>
+                </tr>
+            </table>
         </main>
     </body>
 </html>

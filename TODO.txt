@@ -1,14 +1,22 @@
-MISC
+FOCUS ON:
 
-Pick a license
-Github actions - CI
+Creating new Agents/Admins
+
+
+NEXT ITEMS
+
+Admin
+- All Tickets?
+- Email Configuration
+- Ticket Options (categories, auto-assignment?)
+
 
 FUNCTIONALITY
 
 Customer Facing:
 
 Open a ticket via email
-Create an account
+Create an account - email registration check
 review ticket history
 Submit tickets via a web interface
 
@@ -23,16 +31,10 @@ Reporting: by customer, by status, by category, by agent
 Notifications
 POP & IMAP support
 
-NEXT ITEMS
 
-New Pages:
+MISC
 
-Admin
-- All Tickets?
-- User Management
-- Email Configuration
-- Ticket Options (categories, auto-assignment?)
-
-Creating tickets
+Pick a license
+Github actions - CI
 Switch to Postgres (keep h2 for testing?)
 Database Migrations? - After determining v1 schema of database
