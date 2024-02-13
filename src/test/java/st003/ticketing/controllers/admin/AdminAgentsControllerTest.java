@@ -13,29 +13,29 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class AgentNewTicketControllerTest {
+public class AdminAgentsControllerTest {
 
     @Autowired
     private MockMvc mvc;
 
     @Test
     @WithMockUser(roles = {"ADMIN"})
-    void getAdminConfigAdminRole() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/admin/config"))
+    void getAdminAgentsAdminRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/admin/agents"))
             .andExpect(status().isOk());
     }
 
     @Test
     @WithMockUser(roles = {"AGENT"})
-    void getAdminConfigAgentRole() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/admin/config"))
+    void getAdminAgentsAgentRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/admin/agents"))
             .andExpect(status().isForbidden());
     }
 
     @Test
     @WithMockUser(roles = {"CUSTOMER"})
-    void getAdminConfigCustomerRole() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/admin/config"))
+    void getAdminAgentsCustomerRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/admin/agents"))
             .andExpect(status().isForbidden());
     }
 }

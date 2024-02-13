@@ -4,10 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AdminConfigController {
+public class AdminAgentsController {
 
-    @RequestMapping("/admin/config")
-    public String getAdminConfig() {
-        return "admin/config";
+    @RequestMapping("/admin/agents")
+    public String getAdminAgents() {
+        return "admin/agents";
     }
 }
