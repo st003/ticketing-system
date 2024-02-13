@@ -2,27 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head th:replace="~{fragments/head :: head('Create An Account')}"></head>
     <body>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <span class="navbar-brand">Help Desk</span>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarItems" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div id="navbarItems" class="collapse navbar-collapse">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item ms-lg-3">
-                            <a sec:authorize="isAnonymous()" class="nav-link" href="/login">Log in</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <h1 class="mb-3">Success</h1>
+        <div class="public_form_page">
+            <div class="public_form_content">
+                <h1 class="mb-3">Account Created</h1>
+                <div class="public_form_container">
                     <p>Your account has been created successfully. You may now sign in on the log in page.</p>
-                    <a class="btn btn-primary" href="/login">Go To Log In</a>
+                    <a class="btn btn_secondary form-control" href="/login">Go To Log In</a>
                 </div>
             </div>
         </div>

@@ -19,11 +19,13 @@ $dark_text: #333333;
     &:hover {
         background-color: $secondary_color_hover;
         border-color: $secondary_color_hover;
+        color: $light_text;
     }
 
     &:active {
         background-color: $secondary_color_active;
         border-color: $secondary_color_active;
+        color: $light_text;
     }
 }
 
@@ -55,6 +57,7 @@ header {
 
     .public_form_content {
         min-width: 400px;
+        max-width: 400px;
 
         h1 {
             color: $light_text;

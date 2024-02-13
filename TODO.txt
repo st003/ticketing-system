@@ -33,6 +33,6 @@ Admin
 - Email Configuration
 - Ticket Options (categories, auto-assignment?)
 
-Testing form posts
+Creating tickets
 Switch to Postgres (keep h2 for testing?)
 Database Migrations? - After determining v1 schema of database
