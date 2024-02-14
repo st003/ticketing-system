@@ -1,5 +1,7 @@
 package st003.ticketing.controllers;
 
+import java.util.Optional;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,9 +33,14 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String postRegister(@ModelAttribute AppUser appUser, @RequestParam String password) {
+    public String postRegister(@ModelAttribute AppUser appUser, @RequestParam String password, Model model) {
 
-        // TODO - check for existing AppUser by email
+        // check fif email is taken
+        Optional<AppUser> emailTaken = repo.findByEmail(appUser.getEmail());
+        if (emailTaken.isPresent()) {
+            model.addAttribute("error", "An account with this email already exists");
+            return "register";
+        }
 
         // password is passed as a @RequestParam because the submitted plaintext value
         // must be run through the hashing logic

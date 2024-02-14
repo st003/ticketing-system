@@ -5,6 +5,7 @@
         <div class="public_form_page">
             <div class="public_form_content">
                 <h1 class="mb-3">Create An Account</h1>
+                <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
                 <div class="public_form_container">
                     <form th:action="@{/register}" th:object="${appUser}" method="post">
                         <div class="mb-3">
