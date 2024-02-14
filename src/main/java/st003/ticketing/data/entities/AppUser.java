@@ -67,6 +67,11 @@ public class AppUser {
         return passwordHash;
     }
 
+    /**
+     * Hash a plaintext password set into the passwordHash field
+     *
+     * @param plaintextPassword
+     */
     public void setPassword(String plaintextPassword) {
         BCryptPasswordEncoder bycrypt = new BCryptPasswordEncoder();
         this.passwordHash = bycrypt.encode(plaintextPassword);
@@ -96,8 +101,13 @@ public class AppUser {
         this.role = role;
     }
 
+    public String getRoleName() {
+        String enumStr = role.toString();
+        return enumStr.substring(5);
+    }
+
     @Override
     public String toString() {
-        return "AppUser(email=" + email + ")";
+        return "AppUser(email=" + email + " role=" + role + ")";
     }
 }

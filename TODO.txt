@@ -1,6 +1,5 @@
 FOCUS ON:
 
-Custom JPA queries
 Creating new Agents/Admins
 
 
