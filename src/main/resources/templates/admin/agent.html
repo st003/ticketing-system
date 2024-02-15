@@ -1,0 +1,58 @@
+<!doctype html>
+<html th:replace="~{fragments/authenticated_layout :: authenticated_layout('Agent', ~{::main})}">
+    <body>
+        <main>
+            <h1 class="mb-4">Agent</h1>
+            <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+            <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+            <section>
+                <form th:action="@{/admin/agent}" th:object="${appUser}" method="post">
+                    <div class="row mb-3">
+                        <div class="col-6">
+                            <label class="form-label">Email<span class="form_required">*</span></label>
+                            <input class="form-control" type="text" th:field="*{email}" max="254" autocomplete="new-password" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">Password<span class="form_required">*</span></label>
+                            <!--/* name used here instead of th:field becauase the password field does not map to the AppUser model attribute */-->
+                            <input class="form-control" type="password" name="password" autocomplete="new-password" required>
+                        </div>
+                        <div class="col">
+                            <!--/* TODO - add confirm password field and JS logic */-->
+                            <label class="form-label">Confirm Password<span class="form_required">*</span></label>
+                            <input class="form-control" type="password" name="confirmPassword" autocomplete="new-password" required>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col">
+                            <label class="form-label">First Name<span class="form_required">*</span></label>
+                            <input class="form-control" type="text" th:field="*{firstName}" autocomplete="new-password" required>
+                        </div>
+                        <div class="col">
+                            <label class="form-label">Last Name<span class="form_required">*</span></label>
+                            <input class="form-control" type="text" th:field="*{lastName}" autocomplete="new-password" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Role</label>
+                            <select class="form-control" th:field="*{role}">
+                                <!--/* TODO - how to filter return values from an enum */-->
+                                <option th:each="role : ${T(st003.ticketing.data.Role).values()}" th:value="${role}" th:text="${role.getShortName()}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col text-end">
+                            <input class="btn btn_secondary" type="submit" value="Save">
+                            <a class="btn btn_secondary ms-2" href="/admin/agents">Cancel</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </body>
+</html>

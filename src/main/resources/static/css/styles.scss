@@ -10,6 +10,7 @@ $neutral_color_active: #BABABA;
 
 $light_text: #FFFFFF;
 $dark_text: #333333;
+$error_text: #FF0000;
 
 html {
     color: $dark_text;
@@ -17,7 +18,7 @@ html {
 
 h1 {
     font-size: 2.5rem;
-    margin-bottom: 2rem;
+    // margin-bottom: 2rem;
 }
 
 section {
@@ -39,6 +40,11 @@ section {
 
 }
 
+.form_required {
+    margin-left: 0.25rem;
+    color: $error_text;
+}
+
 /* BUTTONS */
 
 .btn_secondary {
@@ -52,6 +58,7 @@ section {
         color: $light_text;
     }
 
+    // TODO - fix issue where button turns white when pressed down
     &:active {
         background-color: $secondary_color_active;
         border-color: $secondary_color_active;

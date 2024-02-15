@@ -101,11 +101,6 @@ public class AppUser {
         this.role = role;
     }
 
-    public String getRoleName() {
-        String enumStr = role.toString();
-        return enumStr.substring(5);
-    }
-
     @Override
     public String toString() {
         return "AppUser(email=" + email + " role=" + role + ")";

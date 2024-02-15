@@ -1,4 +1,4 @@
-package st003.ticketing.controllers;
+package st003.ticketing.controllers.admin;
 
 import java.util.Optional;
 
@@ -12,42 +12,40 @@ import org.springframework.web.bind.annotation.RequestParam;
 import st003.ticketing.data.Role;
 import st003.ticketing.data.entities.AppUser;
 import st003.ticketing.data.repositories.AppUserRepository;
-import st003.ticketing.security.AuthenticationUtils;
 
 @Controller
-public class RegisterController {
+public class AdminAgentController {
 
     private AppUserRepository repo;
 
-    public RegisterController(AppUserRepository repo) {
+    public AdminAgentController(AppUserRepository repo) {
         this.repo = repo;
     }
 
-    @GetMapping("/register")
-    public String getRegister(Model model) {
-        if (AuthenticationUtils.isAuthenticated()) return "redirect:/";
+    @GetMapping("/admin/agent")
+    public String getAdminAgent(Model model) {
 
         model.addAttribute("appUser", new AppUser());
 
-        return "register";
+        return "admin/agent";
     }
 
-    @PostMapping("/register")
-    public String postRegister(@ModelAttribute AppUser appUser, @RequestParam String password, Model model) {
+    @PostMapping("/admin/agent")
+    public String postAdminAgent(@ModelAttribute AppUser appUser, @RequestParam String password, @RequestParam Role role, Model model) {
 
         // check if email is taken
         Optional<AppUser> emailTaken = repo.findByEmail(appUser.getEmail());
         if (emailTaken.isPresent()) {
             model.addAttribute("error", "An account with this email already exists");
-            return "register";
+
+        } else {
+            appUser.setPassword(password);
+            appUser.setRole(role);
+            repo.save(appUser);
+
+            model.addAttribute("success", "New agent added successfully");
         }
 
-        // password is passed as a @RequestParam because the submitted plaintext value
-        // must be run through the hashing logic
-        appUser.setPassword(password);
-        appUser.setRole(Role.ROLE_CUSTOMER);
-        repo.save(appUser);
-
-        return "register-success";
+        return "admin/agent";
     }
 }

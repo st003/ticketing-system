@@ -1,7 +1,9 @@
 FOCUS ON:
 
-Creating new Agents/Admins
-
+Creating/modifying Agents
+ - filter enum values in Thymeleaf th:each
+ - modify existing
+Style 403, 403 pages
 
 NEXT ITEMS
 
