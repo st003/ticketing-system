@@ -44,11 +44,15 @@ public class AdminAgentControllerTest {
     }
 
     @Test
+    @WithMockUser(roles = {"ADMIN"})
     void postAdminAgent() throws Exception {
+
+        AppUser u = new AppUser("test");
+        u.setRole(Role.ROLE_AGENT);
+
         mvc.perform(MockMvcRequestBuilders.post("/admin/agent")
-            .flashAttr("appUser", new AppUser("test"))
+            .flashAttr("appUser", u)
             .param("password", "password")
-            .param("role", "1")
             .with(csrf())
         ).andExpect(status().isOk());
     }

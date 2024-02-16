@@ -1,7 +1,6 @@
 FOCUS ON:
 
 Creating/modifying Agents
- - filter enum values in Thymeleaf th:each
  - modify existing
 Style 403, 403 pages
 
