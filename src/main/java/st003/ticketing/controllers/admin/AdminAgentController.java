@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import st003.ticketing.data.Role;
 import st003.ticketing.data.entities.AppUser;
 import st003.ticketing.data.repositories.AppUserRepository;
 
@@ -24,14 +23,12 @@ public class AdminAgentController {
 
     @GetMapping("/admin/agent")
     public String getAdminAgent(Model model) {
-
         model.addAttribute("appUser", new AppUser());
-
         return "admin/agent";
     }
 
     @PostMapping("/admin/agent")
-    public String postAdminAgent(@ModelAttribute AppUser appUser, @RequestParam String password, @RequestParam Role role, Model model) {
+    public String postAdminAgent(@ModelAttribute AppUser appUser, @RequestParam String password, Model model) {
 
         // check if email is taken
         Optional<AppUser> emailTaken = repo.findByEmail(appUser.getEmail());
@@ -40,7 +37,6 @@ public class AdminAgentController {
 
         } else {
             appUser.setPassword(password);
-            appUser.setRole(role);
             repo.save(appUser);
 
             model.addAttribute("success", "New agent added successfully");

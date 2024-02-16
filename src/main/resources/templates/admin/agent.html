@@ -39,8 +39,8 @@
                         <div class="col-6">
                             <label class="form-label">Role</label>
                             <select class="form-control" th:field="*{role}">
-                                <!--/* TODO - how to filter return values from an enum */-->
-                                <option th:each="role : ${T(st003.ticketing.data.Role).values()}" th:value="${role}" th:text="${role.getShortName()}"></option>
+                                <!--/* using Spting Expression Language to filter values of Role enum */-->
+                                <option th:each="role : ${T(st003.ticketing.data.Role).values().?[!#this.name.equals('ROLE_CUSTOMER')]}" th:value="${role}" th:text="${role.getShortName()}"></option>
                             </select>
                         </div>
                     </div>
