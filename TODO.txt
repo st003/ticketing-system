@@ -1,6 +1,5 @@
 FOCUS ON:
 
-Style 403, 403 pages
 Add customer interface
 
 NEXT ITEMS
