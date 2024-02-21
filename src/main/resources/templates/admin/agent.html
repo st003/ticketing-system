@@ -7,6 +7,7 @@
             <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
             <section>
                 <form th:action="@{/admin/agent}" th:object="${appUser}" method="post">
+                    <input th:if="${appUser.id}" type="hidden" th:field="*{id}">
                     <div class="row mb-3">
                         <div class="col-6">
                             <label class="form-label">Email<span class="form_required">*</span></label>
@@ -15,14 +16,14 @@
                     </div>
                     <div class="row mb-3">
                         <div class="col">
-                            <label class="form-label">Password<span class="form_required">*</span></label>
+                            <label class="form-label">Password<span th:if="!${appUser.id}" class="form_required">*</span></label>
                             <!--/* name used here instead of th:field becauase the password field does not map to the AppUser model attribute */-->
-                            <input class="form-control" type="password" name="password" autocomplete="new-password" required>
+                            <input class="form-control" type="password" name="password" autocomplete="new-password" th:required="${appUser.id} ? false : true">
                         </div>
                         <div class="col">
                             <!--/* TODO - add confirm password field and JS logic */-->
-                            <label class="form-label">Confirm Password<span class="form_required">*</span></label>
-                            <input class="form-control" type="password" name="confirmPassword" autocomplete="new-password" required>
+                            <label class="form-label">Confirm Password<span th:if="!${appUser.id}" class="form_required">*</span></label>
+                            <input class="form-control" type="password" name="confirmPassword" autocomplete="new-password" th:required="${appUser.id} ? false : true">
                         </div>
                     </div>
                     <div class="row mb-3">
@@ -48,7 +49,7 @@
                     <div class="row">
                         <div class="col text-end">
                             <input class="btn btn_secondary" type="submit" value="Save">
-                            <a class="btn btn_secondary ms-2" href="/admin/agents">Cancel</a>
+                            <a class="btn btn_secondary ms-2" href="/admin/agents" th:text="${appUser.id} ? Close : Cancel"></a>
                         </div>
                     </div>
                 </form>

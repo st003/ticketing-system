@@ -21,7 +21,9 @@
                         </tr>
                     </thead>
                     <tr th:each="u: ${appUsers}">
-                        <td th:text="${u.email}"></td>
+                        <td>
+                            <a th:href="|/admin/agent/${u.id}|" th:text="${u.email}"></a>
+                        </td>
                         <td th:text="${u.firstName}"></td>
                         <td th:text="${u.lastName}"></td>
                         <td th:text="${u.role.getShortName()}"></td>

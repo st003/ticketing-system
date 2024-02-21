@@ -1,8 +1,7 @@
 FOCUS ON:
 
-Creating/modifying Agents
- - modify existing
 Style 403, 403 pages
+Add customer interface
 
 NEXT ITEMS
 
