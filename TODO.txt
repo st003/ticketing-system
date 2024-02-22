@@ -1,34 +1,40 @@
 FOCUS ON:
 
-Add customer interface
-
-NEXT ITEMS
-
-Admin
-- All Tickets?
-- Email Configuration
-- Ticket Options (categories, auto-assignment?)
-
+update to 3.2.3
+index page redirects when authenticated
+Define Tickets
+  - Creating a Ticket
+  - create a customer on ticket creation
 
 FUNCTIONALITY
 
 Customer Facing:
 
-Open a ticket via email
-Create an account - email registration check
+Open tickets via a form
 review ticket history
-Submit tickets via a web interface
+Open a ticket via email
+Registration email verification
+Notifications?
 
 Agent/Admin Facing:
 
 Open new tickets
 Statuses: open, closed
 Sub-statuses: pending customer, pending agent, resolved, not resolved
-Admin defined categories
 Reporting: by customer, by status, by category, by agent
   - track pending customer vs pending agent times
 Notifications
-POP & IMAP support
+
+Admin Only:
+
+View All Tickets
+Ticket Options
+  - categories
+  - auto-assignment
+Email 
+  - Configuration
+  - POP & IMAP support
+  - Notifications
 
 
 MISC

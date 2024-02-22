@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{fragments/head :: head('Page Not Found')}"></head>
+    <body class="server_error_page">
+        <label>Status</label>
+        <div class="error_content" th:text="${status}"></div>
+        <label>Error</label>
+        <div class="error_content" th:text="${error}"></div>
+        <label>Path</label>
+        <div class="error_content" th:text="${path}"></div>
+        <label>Message</label>
+        <div class="error_content" th:text="${message}"></div>
+        <label>Date</label>
+        <div class="error_content" th:text="${timestamp}"></div>
+        <label>Exception</label>
+        <div class="error_content" th:text="${exception}"></div>
+        <label>Trace</label>
+        <div class="error_content">
+            <pre th:text="${trace}"></pre>
+        </div>
+    </body>
+</html>

@@ -1,10 +1,12 @@
 # Ticketing System
 
-A Help Desk / Ticketing System focused on providing useful reporting tools for IT departments
+A Help Desk / Ticketing System focused on providing useful reporting tools for IT departments.
+
+This application still in early development.
 
 ## Getting Started
 
-Prior knowledge of Java, Apache Maven, and Spring Boot are recommended.
+Prior knowledge of Java, Apache Maven, and Spring Boot are required.
 
 ### Prerequisites
 
@@ -19,10 +21,10 @@ To build the application, run the command:
 
 Linux/MacOS
 ```
-./mvnw package
+./mvnw compile
 ```
 
-To start the application, run the command:
+To start the application locally, run the command:
 
 Linux/MacOS
 ```

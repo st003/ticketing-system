@@ -104,6 +104,24 @@ header {
     }
 }
 
+.server_error_page {
+    padding: 1rem;
+    background-color: $primary_color;
+    color: $light_text;
+
+    label {
+        display: block;
+    }
+
+    .error_content {
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 0.25rem;
+        background-color: $neutral_color_active;
+        color: $dark_text;
+    }
+}
+
 .public_form_page {
     display: flex;
     height: 100vh;
