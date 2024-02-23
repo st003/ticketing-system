@@ -1,6 +1,5 @@
 FOCUS ON:
 
-update to 3.2.3
 index page redirects when authenticated
 Define Tickets
   - Creating a Ticket
