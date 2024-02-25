@@ -10,7 +10,6 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String getLogin() {
-        if (AuthenticationUtils.isAuthenticated()) return "redirect:/";
-        return "login";
+        return AuthenticationUtils.checkForAuthenticatedRedirect("login");
     }
 }

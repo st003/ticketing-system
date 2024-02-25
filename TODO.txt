@@ -1,6 +1,5 @@
 FOCUS ON:
 
-index page redirects when authenticated
 Define Tickets
   - Creating a Ticket
   - create a customer on ticket creation

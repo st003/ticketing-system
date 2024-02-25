@@ -25,11 +25,13 @@ public class RegisterController {
 
     @GetMapping("/register")
     public String getRegister(Model model) {
-        if (AuthenticationUtils.isAuthenticated()) return "redirect:/";
 
-        model.addAttribute("appUser", new AppUser());
+        String templateName = AuthenticationUtils.checkForAuthenticatedRedirect("register");
 
-        return "register";
+        // add the model attr if NOT doing a redirect
+        if (templateName.equals("register")) model.addAttribute("appUser", new AppUser());
+
+        return templateName;
     }
 
     @PostMapping("/register")
