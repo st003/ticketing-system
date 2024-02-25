@@ -2,7 +2,7 @@
 
 A Help Desk / Ticketing System focused on providing useful reporting tools for IT departments.
 
-This application still in early development.
+This application is still in early development.
 
 ## Getting Started
 
