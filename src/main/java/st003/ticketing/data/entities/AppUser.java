@@ -2,8 +2,6 @@ package st003.ticketing.data.entities;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import st003.ticketing.data.Role;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -11,6 +9,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+
+import st003.ticketing.data.Role;
 
 @Entity
 public class AppUser {

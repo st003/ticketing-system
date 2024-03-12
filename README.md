@@ -45,6 +45,6 @@ Linux/MacOS
 * [Spring Boot](https://spring.io/projects/spring-boot/maven) - Web-Application Framework
 * [Apache Maven](https://maven.apache.org/) - Build System
 
-## Licnese
+## License
 
 This software is licensed under the GNU Affero General Public License version 3.0
