@@ -1,24 +1,31 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <header th:fragment="header">
         <div class="app_title">Help Desk</div>
         <div class="profile">
-            <button class="btn btn_secondary" data-bs-toggle="modal" data-bs-target="#logout_confirmation">Log out</button>
+            <div class="dropdown">
+                <button class="btn btn_secondary dropdown-toggle" data-bs-toggle="dropdown" sec:authentication="name"></button>
+                <ul class="dropdown-menu">
+                    <li>
+                        <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logout_confirmation">Log out</a>
+                    </li>
+                </ul>
+            </div>
         </div>
         <div id="logout_confirmation" class="modal fade" data-bs-backdrop="static">
             <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <p>Are you sure you want to log out?</p>
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <p>Are you sure you want to log out?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <form th:action="@{/logout}" method="post">
+                            <input class="btn btn_secondary" type="submit" value="Yes">
+                        </form>
+                        <button class="btn btn_secondary" data-bs-dismiss="modal">No</button>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                    <form th:action="@{/logout}" method="post">
-                        <input class="btn btn_secondary" type="submit" value="Yes">
-                    </form>
-                    <button class="btn btn_secondary" data-bs-dismiss="modal">No</button>
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
     </header>
 </html>
