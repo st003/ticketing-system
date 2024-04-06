@@ -77,7 +77,7 @@ public class SecurityConfig {
                 .successHandler(getLoginSuccessHandler())
 
             ).logout(logoutCustomizer -> logoutCustomizer
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/login")
 
             ).csrf(csrfCustomizer -> csrfCustomizer
                 .ignoringRequestMatchers("/h2-console/**")

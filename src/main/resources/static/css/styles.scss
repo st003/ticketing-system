@@ -22,19 +22,18 @@ h1 {
 
 /* BUTTONS */
 
-.btn_secondary {
+.btn.btn_secondary {
     background-color: $secondary_color;
     border-color: $secondary_color;
     color: $light_text;
 
-    &:hover {
+    &:hover, &:focus {
         background-color: $secondary_color_hover;
         border-color: $secondary_color_hover;
         color: $light_text;
     }
 
-    // TODO - fix issue where button turns white when pressed down
-    &:active {
+    .dropdown-toggle .show, &:active {
         background-color: $secondary_color_active;
         border-color: $secondary_color_active;
         color: $light_text;
@@ -164,6 +163,12 @@ header {
         .profile {
             flex-grow: 1;
             text-align: right;
+        }
+
+        .dropdown {
+            .dropdown-menu {
+                border-radius: 0;
+            }
         }
 
         .modal-body {
