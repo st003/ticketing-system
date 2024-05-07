@@ -1,6 +1,6 @@
 package st003.ticketing.data.entities;
 
-import java.util.Date;
+import java.time.Instant;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,8 +9,6 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Temporal;
-import jakarta.persistence.TemporalType;
 
 import st003.ticketing.data.TicketStatus;
 
@@ -31,11 +29,10 @@ public class Ticket {
 
     // TODO - state
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date openDate;
+    @Column(nullable = false)
+    private Instant openDate;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date closeDate;
+    private Instant closeDate;
 
     // CONSTRUCTORS
 
@@ -67,19 +64,19 @@ public class Ticket {
         this.status = status;
     }
 
-    public Date getOpenDate() {
+    public Instant getOpenDate() {
         return openDate;
     }
 
-    public void setOpenDate(Date openDate) {
+    public void setOpenDate(Instant openDate) {
         this.openDate = openDate;
     }
 
-    public Date getCloseDate() {
+    public Instant getCloseDate() {
         return closeDate;
     }
 
-    public void setCloseDate(Date closeDate) {
+    public void setCloseDate(Instant closeDate) {
         this.closeDate = closeDate;
     }
 }
