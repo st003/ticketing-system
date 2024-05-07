@@ -2,12 +2,14 @@ package st003.ticketing.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import st003.ticketing.data.repositories.AppUserRepository;
 
@@ -54,16 +56,34 @@ public class SecurityConfig {
         return new loginSuccessHandler();
     }
 
+    // TODO - h2-console configs included only for testing
     @Bean
-    public SecurityFilterChain defauFilterChain(HttpSecurity http) throws Exception {
+    @Order(1)
+    public SecurityFilterChain h2ConsoleFilterChain(HttpSecurity http) throws Exception {
 
-        // TODO - TEMPORARY
-        // (1) h2-console configs included only for testing
-        // (2) header frame options only disabled for h2-console
+        http
+            .securityMatcher(AntPathRequestMatcher.antMatcher("/h2-console/**"))
+            .authorizeHttpRequests(authorizeHttpRequestCustomizer -> authorizeHttpRequestCustomizer
+                .requestMatchers("/h2-console/**").permitAll()
+
+            ).csrf(csrfCustomizer -> csrfCustomizer
+                .ignoringRequestMatchers("/h2-console/**")
+
+            ).headers(headersCustomizer -> headersCustomizer
+                .frameOptions(frames -> frames.disable())
+            );
+
+        return http.build();
+    }
+
+
+    @Bean
+    @Order(2)
+    public SecurityFilterChain formFilterChain(HttpSecurity http) throws Exception {
 
         http
             .authorizeHttpRequests(authorizeHttpRequestCustomizer -> authorizeHttpRequestCustomizer
-                .requestMatchers("/css/**", "/js/**", "/h2-console/**").permitAll()
+                .requestMatchers("/css/**", "/js/**").permitAll()
                 .requestMatchers("/", "/register").permitAll()
                 .requestMatchers("/ticket", "/tickets", "/new-ticket").hasRole("CUSTOMER")
                 .requestMatchers("/agent/**").hasAnyRole("AGENT", "ADMIN")
@@ -78,12 +98,6 @@ public class SecurityConfig {
 
             ).logout(logoutCustomizer -> logoutCustomizer
                 .logoutSuccessUrl("/login")
-
-            ).csrf(csrfCustomizer -> csrfCustomizer
-                .ignoringRequestMatchers("/h2-console/**")
-
-            ).headers(headersCustomizer -> headersCustomizer
-                .frameOptions(frames -> frames.disable())
             );
 
         return http.build();
