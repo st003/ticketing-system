@@ -40,8 +40,8 @@
                         <div class="col-6">
                             <label class="form-label">Role</label>
                             <select class="form-control" th:field="*{role}">
-                                <!--/* using Spting Expression Language to filter values of Role enum */-->
-                                <option th:each="role : ${T(st003.ticketing.data.Role).values().?[!#this.name.equals('ROLE_CUSTOMER')]}" th:value="${role}" th:text="${role.getShortName()}"></option>
+                                <option th:value="2" th:text="Agent"></option>
+                                <option th:value="3" th:text="Admin"></option>
                             </select>
                         </div>
                     </div>

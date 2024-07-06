@@ -47,7 +47,7 @@ public class RegisterController {
         // password is passed as a @RequestParam because the submitted plaintext value
         // must be run through the hashing logic
         appUser.setPassword(password);
-        appUser.setRole(Role.ROLE_CUSTOMER);
+        appUser.setRole(Role.CUSTOMER);
         repo.save(appUser);
 
         return "register-success";

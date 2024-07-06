@@ -20,7 +20,7 @@ public class AdminAgentsController {
     @GetMapping("/admin/agents")
     public String getAdminAgents(Model model) {
 
-        Iterable<AppUser> appUsers = repo.findByRoleIn(Role.ROLE_AGENT, Role.ROLE_ADMIN);
+        Iterable<AppUser> appUsers = repo.findByRoleIn(Role.AGENT, Role.ADMIN);
         model.addAttribute("appUsers", appUsers);
 
         return "admin/agents";

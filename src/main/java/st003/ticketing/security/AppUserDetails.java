@@ -7,6 +7,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import st003.ticketing.data.Role;
 import st003.ticketing.data.entities.AppUser;
 
 public class AppUserDetails implements UserDetails {
@@ -20,7 +21,7 @@ public class AppUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Collection<GrantedAuthority> authorities = new ArrayList<>();
-        String role = user.getRole().name();
+        String role = Role.getAuthorizationName(user.getRole());
         authorities.add(new SimpleGrantedAuthority(role));
         return authorities;
     }

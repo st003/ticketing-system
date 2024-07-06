@@ -30,18 +30,18 @@ public class DatabaseSeeder implements CommandLineRunner {
             defaultAdmin.setPassword("password");
             defaultAdmin.setFirstName("Admin");
             defaultAdmin.setLastName("Admin");
-            defaultAdmin.setRole(Role.ROLE_ADMIN);
+            defaultAdmin.setRole(Role.ADMIN);
             repo.save(defaultAdmin);
 
             // TODO - TEMPORARY - Remove test agent after core design is done
             AppUser agent = new AppUser("agent");
             agent.setPassword("password");
-            agent.setRole(Role.ROLE_AGENT);
+            agent.setRole(Role.AGENT);
             repo.save(agent);
 
             AppUser customer = new AppUser("customer");
             customer.setPassword("password");
-            customer.setRole(Role.ROLE_CUSTOMER);
+            customer.setRole(Role.CUSTOMER);
             repo.save(customer);
         }
     }

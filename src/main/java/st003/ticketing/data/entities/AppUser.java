@@ -4,12 +4,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
 import st003.ticketing.data.Role;
 
 @Entity
@@ -33,9 +30,8 @@ public class AppUser {
     @Column(length = 64)
     private String lastName;
 
-    @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
-    private Role role;
+    private Integer role;
 
     // CONSTRUCTORS
 
@@ -93,12 +89,16 @@ public class AppUser {
         this.lastName = lastName;
     }
 
-    public Role getRole() {
+    public Integer getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(Integer role) {
         this.role = role;
+    }
+
+    public String getRoleName() {
+        return Role.getName(role);
     }
 
     @Override

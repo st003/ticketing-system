@@ -48,7 +48,7 @@ public class AdminAgentControllerTest {
     void postAdminAgent() throws Exception {
 
         AppUser u = new AppUser("test");
-        u.setRole(Role.ROLE_AGENT);
+        u.setRole(Role.AGENT);
 
         mvc.perform(MockMvcRequestBuilders.post("/admin/agent")
             .flashAttr("appUser", u)
