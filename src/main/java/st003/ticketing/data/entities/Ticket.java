@@ -16,7 +16,7 @@ public class Ticket {
     @Column(name = "TICKET_ID")
     private Long id;
 
-    @Column(length = 7, nullable = false, unique = true)
+    @Column(length = 10, nullable = false, unique = true)
     private String number;
 
     @Column(nullable = false)
