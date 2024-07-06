@@ -103,6 +103,6 @@ public class AppUser {
 
     @Override
     public String toString() {
-        return "AppUser(email=" + email + " role=" + role + ")";
+        return "AppUser(email=" + email + " role=" + getRoleName() + ")";
     }
 }

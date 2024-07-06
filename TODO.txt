@@ -22,8 +22,8 @@ Notifications?
 Agent/Admin Facing:
 
 Open new tickets
-Statuses: open, closed
-State: pending customer, pending agent, resolved, not resolved
+Status: open, closed
+State: pending customer, pending agent
 Reporting: by customer, by status, by category, by agent
   - track pending customer vs pending agent times
 Notifications

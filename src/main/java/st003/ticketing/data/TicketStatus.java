@@ -1,9 +1,10 @@
 package st003.ticketing.data;
 
 /**
- * Enum for defining Ticket statuses
+ * Defines ticket status valuew
  */
-public enum TicketStatus {
-    OPEN,
-    CLOSED;
+public class TicketStatus {
+
+    public static final int OPEN   = 1;
+    public static final int CLOSED = 2;
 }

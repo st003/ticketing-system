@@ -4,13 +4,9 @@ import java.time.Instant;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
-import st003.ticketing.data.TicketStatus;
 
 @Entity
 public class Ticket {
@@ -23,11 +19,8 @@ public class Ticket {
     @Column(length = 7, nullable = false, unique = true)
     private String number;
 
-    @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
-    private TicketStatus status;
-
-    // TODO - state
+    private Integer status;
 
     @Column(nullable = false)
     private Instant openDate;
@@ -56,11 +49,11 @@ public class Ticket {
         this.number = number;
     }
 
-    public TicketStatus getStatus() {
+    public Integer getStatus() {
         return status;
     }
 
-    public void setStatus(TicketStatus status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 
