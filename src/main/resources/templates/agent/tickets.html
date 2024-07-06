@@ -1,9 +1,34 @@
 <!doctype html>
 <html th:replace="~{fragments/authenticated_layout :: authenticated_layout('Tickets', ~{::main})}">
     <body>
-        <main>
-            <h1>Assigned Tickets</h1>
-            <h2>Tickets Queue</h2>
+        <main class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h1>Assigned Tickets</h1>
+                </div>
+                <div class="col text-end">
+                    <a class="btn btn_secondary" href="/agent/new-ticket">Open Ticket</a>
+                </div>
+                <section>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Ticket Number</th>
+                                <th>Status</th>
+                                <th>Date Opened</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="t: ${tickets}">
+                                <td th:text="${t.number}"></td>
+                                <td th:text="${t.status}"></td>
+                                <td th:text="${t.openDate}"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <h2>Tickets Queue</h2>
+            </div>
         </main>
     </body>
 </html>

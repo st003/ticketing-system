@@ -1,5 +1,6 @@
 package st003.ticketing.controllers.agent;
 
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import org.junit.jupiter.api.Test;
@@ -37,5 +38,13 @@ public class AgentNewTicketControllerTest {
     void getAgentNewTicketCustomerRole() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/agent/new-ticket"))
             .andExpect(status().isForbidden());
+    }
+
+    @Test
+    @WithMockUser(roles = {"ADMIN"})
+    void postAgentNewTicketCustomerRole() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.get("/agent/new-ticket")
+            .with(csrf())
+        ).andExpect(status().isOk());
     }
 }

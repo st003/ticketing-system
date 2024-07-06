@@ -2,7 +2,12 @@
 <html th:replace="~{fragments/authenticated_layout :: authenticated_layout('New Ticket', ~{::main})}">
     <body>
         <main>
-            <h1>New Ticket</h1>
+            <h1>Open New Ticket</h1>
+            <section>
+                <form th:action="@{/agent/new-ticket}" th:object="${ticket}" method="post">
+                    <input class="btn btn_secondary" type="submit" value="Open Ticket">
+                </form>
+            </section>
         </main>
     </body>
 </html>

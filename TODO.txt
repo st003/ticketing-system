@@ -6,7 +6,6 @@ Ticket
 
 Define Ticket actions
   - Generate random ticket number
-  - Creating a Ticket
   - Create a customer on ticket creation
 
 FUNCTIONALITY
@@ -21,8 +20,6 @@ Notifications?
 
 Agent/Admin Facing:
 
-Open new tickets
-Status: open, closed
 State: pending customer, pending agent
 Reporting: by customer, by status, by category, by agent
   - track pending customer vs pending agent times
