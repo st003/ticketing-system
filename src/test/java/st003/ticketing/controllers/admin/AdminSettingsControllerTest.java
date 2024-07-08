@@ -13,7 +13,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @SpringBootTest
 @AutoConfigureMockMvc
-public class AgentSettingsControllerTest {
+public class AdminSettingsControllerTest {
 
     @Autowired
     private MockMvc mvc;

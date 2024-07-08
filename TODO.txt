@@ -1,6 +1,7 @@
 NEXT:
 
-How to test service layer?
+Eliminate instances of @SpringBootTest
+Ticket relationships
 
 FOCUS ON:
 

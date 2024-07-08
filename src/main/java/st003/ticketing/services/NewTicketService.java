@@ -17,9 +17,7 @@ public class NewTicketService {
         this.repo = repo;
     }
 
-    // TODOS -
-    // (1) should this have a return value?
-    // (2) how to test? With repo mock?
+    // TODO - should this have a return value?
     public void openNewTicket(Ticket ticket) {
 
         ticket.setNumber(generateNewTickerNumber());
