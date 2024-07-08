@@ -34,10 +34,12 @@ public class RegisterControllerTest {
     @Test
     void postRegister() throws Exception {
 
-        when(registerService.emailIsTaken(null)).thenReturn(false);
+        AppUser au = new AppUser("test");
+
+        when(registerService.emailIsTaken(au)).thenReturn(false);
 
         mvc.perform(MockMvcRequestBuilders.post("/register")
-                    .flashAttr("appUser", new AppUser("test"))
+                    .flashAttr("appUser", au)
                     .param("password", "password")
                     .with(csrf())
                 ).andExpect(status().isOk());
