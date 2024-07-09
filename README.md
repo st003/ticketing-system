@@ -21,7 +21,7 @@ To build the application, run the command:
 
 Linux/MacOS
 ```
-./mvnw compile
+./mvnw clean compile
 ```
 
 To start the application locally, run the command:
@@ -37,7 +37,7 @@ To run the tests, run the command:
 
 Linux/MacOS
 ```
-./mvnw test
+./mvnw clean test
 ```
 
 ## Built With

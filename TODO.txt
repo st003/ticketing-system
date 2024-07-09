@@ -1,7 +1,7 @@
 NEXT:
 
-Additional tests for Services
 Ticket relationships
+Examine dependency injection during testing
 
 FOCUS ON:
 
