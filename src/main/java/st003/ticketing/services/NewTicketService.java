@@ -17,14 +17,20 @@ public class NewTicketService {
         this.repo = repo;
     }
 
-    // TODO - should this have a return value?
-    public void openNewTicket(Ticket ticket) {
+    /**
+     * Creates a new Ticket with a unqiue ticket number, a status of open,
+     * and a open date of the current timestamp.
+     *
+     * @param  ticket An instance of a Ticket
+     * @return        A copy of the newly created Ticket
+     */
+    public Ticket openNewTicket(Ticket ticket) {
 
         ticket.setNumber(generateNewTickerNumber());
         ticket.setStatus(TicketStatus.OPEN);
         ticket.setOpenDate(Instant.now());
 
-        repo.save(ticket);
+        return repo.save(ticket);
     }
 
     /**
