@@ -30,6 +30,7 @@ public class NewTicketService {
         ticket.setStatus(TicketStatus.OPEN);
         ticket.setOpenDate(Instant.now());
 
+        // TODO - how should we handle a possible illegal argument exception?
         return repo.save(ticket);
     }
 

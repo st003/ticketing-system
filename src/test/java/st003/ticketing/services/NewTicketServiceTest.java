@@ -20,7 +20,7 @@ public class NewTicketServiceTest {
     private TicketRepository ticketRepository;
 
     @Test
-    void testGenerateNewTickerNumber() {
+    void generateNewTickerNumber() {
 
         // TODO - can this be made an injected dependency of the test class?
         NewTicketService srv = new NewTicketService(ticketRepository);
@@ -31,7 +31,7 @@ public class NewTicketServiceTest {
     }
 
     @Test
-    void testOpenNewTicket() {
+    void openNewTicketSuccess() {
 
         Ticket t = new Ticket();
         when(ticketRepository.save(t)).thenReturn(t);
