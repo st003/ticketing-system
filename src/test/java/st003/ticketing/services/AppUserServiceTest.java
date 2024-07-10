@@ -33,7 +33,7 @@ public class AppUserServiceTest {
     }
 
     @Test
-    void getExistingOrEmptyAppUser_SuccessfullyFoundAppUser() {
+    void getExistingOrEmptyAppUser_successfullyFoundAppUser() {
         AppUser found = new AppUser();
         found.setId(1L);
         when(appUserRepository.findById(1L)).thenReturn(Optional.of(found));
@@ -47,7 +47,7 @@ public class AppUserServiceTest {
     }
 
     @Test
-    void getExistingOrEmptyAppUser_ReturningEmptyAppUser() {
+    void getExistingOrEmptyAppUser_returningEmptyAppUser() {
         AppUser result = srv.getExistingOrEmptyAppUser(Optional.empty());
 
         assertAll(
@@ -57,7 +57,13 @@ public class AppUserServiceTest {
     }
 
     @Test
-    void appUserEmailIsTaken_EmailIsTaken() {
+    void getExistingOrEmptyAppUser_invalidIdFormat() {
+        AppUser result = srv.getExistingOrEmptyAppUser(Optional.of("qwerty"));
+        assertNotNull(result);
+    }
+
+    @Test
+    void appUserEmailIsTaken_emailIsTaken() {
         String email  = "email@example.com";
         AppUser found = new AppUser(email);
         found.setId(1L);
@@ -69,7 +75,7 @@ public class AppUserServiceTest {
     }
 
     @Test
-    void appUserEmailIsTaken_SameAppUser() {
+    void appUserEmailIsTaken_sameAppUser() {
         String email = "email@example.com";
         Long id      = 1L;
 
@@ -84,7 +90,7 @@ public class AppUserServiceTest {
     }
 
     @Test
-    void appUserEmailIsTaken_EmailIsNotTaken() {
+    void appUserEmailIsTaken_emailIsNotTaken() {
         String email = "email@example.com";
         when(appUserRepository.findByEmail(email)).thenReturn(Optional.empty());
 

@@ -35,9 +35,14 @@ public class AppUserService {
      */
     public AppUser getExistingOrEmptyAppUser(Optional<String> id) {
         if (id.isPresent()) {
-            // TODO - add exception handling for parseLong
-            Optional<AppUser> foundAppUser = repo.findById(Long.parseLong(id.get()));
-            if (foundAppUser.isPresent()) return foundAppUser.get();
+            try {
+                Long appUserId = Long.parseLong(id.get());
+                Optional<AppUser> foundAppUser = repo.findById(appUserId);
+                if (foundAppUser.isPresent()) return foundAppUser.get();
+
+            } catch (NumberFormatException e) {
+                return new AppUser();
+            }
         }
         return new AppUser();
     }
