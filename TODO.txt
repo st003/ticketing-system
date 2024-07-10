@@ -1,5 +1,8 @@
 NEXT:
 
+More services and tests
+Rename NewTicketService to TicketService
+RequestMapping annotations. eliminate repeated: /admin/page1, /admin/page2
 Ticket relationships
 
 FOCUS ON:

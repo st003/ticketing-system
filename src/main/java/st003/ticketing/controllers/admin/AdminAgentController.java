@@ -12,25 +12,23 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import st003.ticketing.data.entities.AppUser;
 import st003.ticketing.data.repositories.AppUserRepository;
+import st003.ticketing.services.AppUserService;
 
 @Controller
 public class AdminAgentController {
 
     private AppUserRepository repo;
 
-    public AdminAgentController(AppUserRepository repo) {
+    private final AppUserService srv;
+
+    public AdminAgentController(AppUserRepository repo, AppUserService srv) {
         this.repo = repo;
+        this.srv = srv;
     }
 
     @GetMapping(value = {"/admin/agent", "/admin/agent/{id}"})
     public String getAdminAgent(@PathVariable(required = false) Optional<String> id, Model model) {
-
-        AppUser u = new AppUser();
-        if (id.isPresent()) {
-            Optional<AppUser> foundAppUser = repo.findById(Long.parseLong(id.get()));
-            if (foundAppUser.isPresent()) u = foundAppUser.get();
-        }
-
+        AppUser u = srv.getExistingOrEmptyAppUser(id);
         model.addAttribute("appUser", u);
         return "admin/agent";
     }
