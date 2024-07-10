@@ -16,16 +16,16 @@ import st003.ticketing.data.entities.Ticket;
 import st003.ticketing.data.repositories.TicketRepository;
 
 @ExtendWith(SpringExtension.class)
-public class NewTicketServiceTest {
+public class TicketServiceTest {
 
     @MockBean
     private TicketRepository ticketRepository;
 
-    private NewTicketService srv;
+    private TicketService srv;
 
     @BeforeEach
     void setup() {
-        this.srv = new NewTicketService(ticketRepository);
+        this.srv = new TicketService(ticketRepository);
     }
 
     @Test

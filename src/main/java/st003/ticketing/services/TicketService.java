@@ -9,11 +9,11 @@ import st003.ticketing.data.entities.Ticket;
 import st003.ticketing.data.repositories.TicketRepository;
 
 @Service
-public class NewTicketService {
+public class TicketService {
 
     private TicketRepository repo;
 
-    public NewTicketService(TicketRepository repo) {
+    public TicketService(TicketRepository repo) {
         this.repo = repo;
     }
 

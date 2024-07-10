@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import st003.ticketing.data.entities.Ticket;
-import st003.ticketing.services.NewTicketService;
+import st003.ticketing.services.TicketService;
 
 @Controller
 public class AgentNewTicketController {
 
-    private NewTicketService srv;
+    private TicketService srv;
 
-    public AgentNewTicketController(NewTicketService srv) {
+    public AgentNewTicketController(TicketService srv) {
         this.srv = srv;
     }
 
