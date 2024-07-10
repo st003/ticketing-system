@@ -1,10 +1,10 @@
 package st003.ticketing.services;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,8 +31,10 @@ public class NewTicketServiceTest {
     @Test
     void generateNewTickerNumber() {
         String actual = srv.generateNewTickerNumber();
-        assertNotNull(actual);
-        assertEquals(10, actual.length());
+        assertAll(
+            () -> assertNotNull(actual),
+            () -> assertEquals(10, actual.length())
+        );
     }
 
     @Test
@@ -42,9 +44,11 @@ public class NewTicketServiceTest {
 
         Ticket newTicket = srv.openNewTicket(t);
 
-        assertNotNull(newTicket);
-        assertNotNull(newTicket.getNumber());
-        assertEquals(TicketStatus.OPEN, newTicket.getStatus());
-        assertNotNull(newTicket.getOpenDate());
+        assertAll(
+            () -> assertNotNull(newTicket),
+            () -> assertNotNull(newTicket.getNumber()),
+            () -> assertEquals(TicketStatus.OPEN, newTicket.getStatus()),
+            () -> assertNotNull(newTicket.getOpenDate())
+        );
     }
 }

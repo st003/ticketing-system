@@ -1,5 +1,6 @@
 package st003.ticketing.services;
 
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -46,8 +47,10 @@ public class RegisterServiceTest {
 
         AppUser actual = srv.registerNewCustomer(au, "password");
 
-        assertNotNull(actual);
-        assertNotNull(actual.getPasswordHash());
-        assertEquals(Role.CUSTOMER, actual.getRole());
+        assertAll(
+            () -> assertNotNull(actual),
+            () -> assertNotNull(actual.getPasswordHash()),
+            () -> assertEquals(Role.CUSTOMER, actual.getRole())
+        );
     }
 }
