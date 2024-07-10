@@ -31,4 +31,19 @@ public class AppUserService {
         }
         return new AppUser();
     }
+
+    /**
+     * Checks if an email is already in user by a different AppUser
+     *
+     * @param  appUser An instance of AppUser
+     * @return         A boolean
+     */
+    public boolean appUserEmailIsTaken(AppUser appUser) {
+        Optional<AppUser> result = repo.findByEmail(appUser.getEmail());
+        if (result.isPresent()) {
+            // you may re-submit an email when updating an AppUser
+            return (appUser.getId() != result.get().getId());
+        }
+        return false;
+    }
 }

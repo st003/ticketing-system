@@ -36,14 +36,10 @@ public class AdminAgentController {
     @PostMapping("/admin/agent")
     public String postAdminAgent(@ModelAttribute AppUser appUser, @RequestParam(required = false) Optional<String> password, Model model) {
 
-        // check if email is taken
-        Optional<AppUser> emailTaken = repo.findByEmail(appUser.getEmail());
-        if (emailTaken.isPresent()) {
-            // when trying to create or update with an in-use email
-            if (appUser.getId() == null || appUser.getId() != emailTaken.get().getId()) {
-                model.addAttribute("error", "An account with this email already exists");
-                return "admin/agent";
-            }
+
+        if (srv.appUserEmailIsTaken(appUser)) {
+            model.addAttribute("error", "An account with this email already exists");
+            return "admin/agent";
         }
 
         if (password.isPresent()) appUser.setPassword(password.get());
