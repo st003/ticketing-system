@@ -4,25 +4,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import st003.ticketing.data.Role;
 import st003.ticketing.data.entities.AppUser;
-import st003.ticketing.data.repositories.AppUserRepository;
+import st003.ticketing.services.AppUserService;
 
 @Controller
 public class AdminAgentsController {
 
-    private AppUserRepository repo;
+    private AppUserService srv;
 
-    public AdminAgentsController(AppUserRepository repo) {
-        this.repo = repo;
+    public AdminAgentsController(AppUserService srv) {
+        this.srv = srv;
     }
 
     @GetMapping("/admin/agents")
     public String getAdminAgents(Model model) {
-
-        Iterable<AppUser> appUsers = repo.findByRoleIn(Role.AGENT, Role.ADMIN);
+        Iterable<AppUser> appUsers = srv.getAllAgents();
         model.addAttribute("appUsers", appUsers);
-
         return "admin/agents";
     }
 }

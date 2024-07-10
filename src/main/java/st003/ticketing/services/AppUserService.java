@@ -4,6 +4,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import st003.ticketing.data.Role;
 import st003.ticketing.data.entities.AppUser;
 import st003.ticketing.data.repositories.AppUserRepository;
 
@@ -17,13 +18,22 @@ public class AppUserService {
     }
 
     /**
-     * Service wrapper method for saving 
+     * Service wrapper method for saving an AppUser
      *
      * @param  appuser An instance of AppUser
      * @return         An instance of AppUser
      */
     public AppUser saveAppUser(AppUser appuser) {
         return repo.save(appuser);
+    }
+
+    /**
+     * Returns all AppUsers who's roles are AGENT or ADMIN
+     *
+     * @return An Iterable of AppUser objects
+     */
+    public Iterable<AppUser> getAllAgents() {
+        return repo.findByRoleIn(Role.AGENT, Role.ADMIN);
     }
 
     /**
