@@ -14,10 +14,10 @@ import st003.ticketing.services.RegisterService;
 @Controller
 public class RegisterController {
 
-    private RegisterService service;
+    private RegisterService srv;
 
-    public RegisterController(RegisterService service) {
-        this.service = service;
+    public RegisterController(RegisterService srv) {
+        this.srv = srv;
     }
 
     @GetMapping("/register")
@@ -34,14 +34,14 @@ public class RegisterController {
     @PostMapping("/register")
     public String postRegister(@ModelAttribute AppUser appUser, @RequestParam String password, Model model) {
 
-        if (service.emailIsTaken(appUser)) {
+        if (srv.emailIsTaken(appUser)) {
             model.addAttribute("error", "An account with this email already exists");
             return "register";
         }
 
         // password is passed as a @RequestParam because the submitted plaintext value
         // must be run through the hashing logic
-        service.registerNewCustomer(appUser, password);
+        srv.registerNewCustomer(appUser, password);
 
         return "register-success";
     }
