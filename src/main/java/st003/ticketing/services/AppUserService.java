@@ -17,6 +17,16 @@ public class AppUserService {
     }
 
     /**
+     * Service wrapper method for saving 
+     *
+     * @param  appuser An instance of AppUser
+     * @return         An instance of AppUser
+     */
+    public AppUser saveAppUser(AppUser appuser) {
+        return repo.save(appuser);
+    }
+
+    /**
      * Attempts to locate an AppUser by id. If id is not provided, or
      * no AppUser is found in the database, return an empty AppUser object.
      *

@@ -11,18 +11,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import st003.ticketing.data.entities.AppUser;
-import st003.ticketing.data.repositories.AppUserRepository;
 import st003.ticketing.services.AppUserService;
 
 @Controller
 public class AdminAgentController {
 
-    private AppUserRepository repo;
-
     private final AppUserService srv;
 
-    public AdminAgentController(AppUserRepository repo, AppUserService srv) {
-        this.repo = repo;
+    public AdminAgentController(AppUserService srv) {
         this.srv = srv;
     }
 
@@ -36,14 +32,13 @@ public class AdminAgentController {
     @PostMapping("/admin/agent")
     public String postAdminAgent(@ModelAttribute AppUser appUser, @RequestParam(required = false) Optional<String> password, Model model) {
 
-
         if (srv.appUserEmailIsTaken(appUser)) {
             model.addAttribute("error", "An account with this email already exists");
             return "admin/agent";
         }
 
         if (password.isPresent()) appUser.setPassword(password.get());
-        repo.save(appUser);
+        srv.saveAppUser(appUser);
 
         model.addAttribute("success", "Your changes have been saved");
         return "admin/agent";
