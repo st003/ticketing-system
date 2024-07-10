@@ -7,6 +7,7 @@ import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -22,29 +23,27 @@ public class RegisterServiceTest {
     @MockBean
     private AppUserRepository appUserRepository;
 
+    private RegisterService srv;
+
+    @BeforeEach
+    void setup() {
+        this.srv = new RegisterService(appUserRepository);
+    }
+
     @Test
     void emailIsTakenAppUserFound() {
-
         String email = "email@example.com";
         AppUser au   = new AppUser(email);
-
         when(appUserRepository.findByEmail(email)).thenReturn(Optional.of(au));
-
-        // TODO - can this be made an injected dependency of the test class?
-        RegisterService srv = new RegisterService(appUserRepository);
 
         assertTrue(srv.emailIsTaken(au));
     }
 
     @Test
     void registerNewCustomerSuccess() {
-
         AppUser au = new AppUser();
-
         when(appUserRepository.save(au)).thenReturn(au);
 
-        // TODO - can this be made an injected dependency of the test class?
-        RegisterService srv = new RegisterService(appUserRepository);
         AppUser actual = srv.registerNewCustomer(au, "password");
 
         assertNotNull(actual);

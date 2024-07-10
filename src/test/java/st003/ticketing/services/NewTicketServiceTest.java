@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.when;
 
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -19,25 +21,24 @@ public class NewTicketServiceTest {
     @MockBean
     private TicketRepository ticketRepository;
 
+    private NewTicketService srv;
+
+    @BeforeEach
+    void setup() {
+        this.srv = new NewTicketService(ticketRepository);
+    }
+
     @Test
     void generateNewTickerNumber() {
-
-        // TODO - can this be made an injected dependency of the test class?
-        NewTicketService srv = new NewTicketService(ticketRepository);
         String actual = srv.generateNewTickerNumber();
-
         assertNotNull(actual);
         assertEquals(10, actual.length());
     }
 
     @Test
     void openNewTicketSuccess() {
-
         Ticket t = new Ticket();
         when(ticketRepository.save(t)).thenReturn(t);
-
-        // TODO - can this be made an injected dependency of the test class?
-        NewTicketService srv = new NewTicketService(ticketRepository);
 
         Ticket newTicket = srv.openNewTicket(t);
 

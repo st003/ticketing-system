@@ -1,7 +1,6 @@
 NEXT:
 
 Ticket relationships
-Examine dependency injection during testing
 
 FOCUS ON:
 
