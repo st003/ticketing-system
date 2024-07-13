@@ -1,6 +1,5 @@
 NEXT:
 
-More services and tests
 RequestMapping annotations. eliminate repeated: /admin/page1, /admin/page2
 Ticket relationships
 
