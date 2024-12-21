@@ -11,7 +11,7 @@ import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import st003.ticketing.data.Role;
@@ -21,7 +21,7 @@ import st003.ticketing.data.repositories.AppUserRepository;
 @ExtendWith(SpringExtension.class)
 public class RegisterServiceTest {
 
-    @MockBean
+    @MockitoBean
     private AppUserRepository appUserRepository;
 
     private RegisterService srv;

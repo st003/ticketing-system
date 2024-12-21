@@ -8,7 +8,7 @@ import static org.mockito.Mockito.when;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import st003.ticketing.data.TicketStatus;
@@ -18,7 +18,7 @@ import st003.ticketing.data.repositories.TicketRepository;
 @ExtendWith(SpringExtension.class)
 public class TicketServiceTest {
 
-    @MockBean
+    @MockitoBean
     private TicketRepository ticketRepository;
 
     private TicketService srv;
