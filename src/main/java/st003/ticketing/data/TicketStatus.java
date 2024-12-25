@@ -1,7 +1,7 @@
 package st003.ticketing.data;
 
 /**
- * Defines ticket status valuew
+ * Defines ticket status values
  */
 public class TicketStatus {
 
